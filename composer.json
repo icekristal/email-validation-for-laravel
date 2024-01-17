@@ -1,0 +1,29 @@
+{
+    "name": "icekristal/email-validation-for-laravel",
+    "description": "Laravel Email Validation Services",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "icekristal",
+            "email": "savatneev-anton@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^9|^10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Icekristal\\EmailValidationService\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Icekristal\\EmailValidationService\\EmailValidationServiceProvider"
+            ]
+        }
+    }
+}

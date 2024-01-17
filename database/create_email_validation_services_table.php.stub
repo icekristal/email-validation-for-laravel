@@ -1,0 +1,23 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('email_validation_services', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('service')->comment('The service used to validate the email address, key service');
+            $table->string('email');
+            $table->tinyInteger('status')->default(0);
+            $table->float('quality_score')->nullable();
+            $table->integer('count_request')->default(0);
+            $table->json('response');
+            $table->dateTime('response_at')->nullable();
+            $table->timestamps();
+        });
+    }
+};
