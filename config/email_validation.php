@@ -10,14 +10,17 @@ return [
         'abstractapi' => [
             'api_key' => env('ABSTRACT_API_KEY'),
             'api_url' => env('ABSTRACT_API_URL', 'https://emailvalidation.abstractapi.com/v1'),
+            'class' => \Icekristal\EmailValidationForLaravel\Services\AbstractApi::class,
         ],
         'emaillistverify' => [
             'api_key' => env('EMAILLISTVERIFY_API_KEY'),
             'api_url' => env('EMAILLISTVERIFY_API_URL', 'https://apps.emaillistverify.com/api/verifyEmail'),
+            'class' => \Icekristal\EmailValidationForLaravel\Services\EmailListVerify::class,
         ],
         'smtpbz' => [
             'api_key' => env('SMTPBZ_API_KEY'),
             'api_url' => env('SMTPBZ_API_URL', 'https://api.smtp.bz/v1/check/email'),
+            'class' => \Icekristal\EmailValidationForLaravel\Services\SmtpBz::class,
         ],
     ]
 ];

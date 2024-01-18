@@ -1,4 +1,5 @@
 <?php
+
 namespace Icekristal\EmailValidationForLaravel\Models;
 
 use Carbon\Carbon;
@@ -9,13 +10,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $count_request
  * @property string $service
  * @property string $email
+ * @property integer $response_status
  * @property boolean $is_valid
  * @property object $response
  * @property Carbon $response_at
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
-class ServiceUniteller extends Model
+class EmailValidationService extends Model
 {
     /**
      *
@@ -31,6 +33,7 @@ class ServiceUniteller extends Model
         'email',
         'is_valid',
         'response',
+        'response_status',
         'response_at',
         'created_at',
         'updated_at',
@@ -46,6 +49,7 @@ class ServiceUniteller extends Model
         'count_request' => 'integer',
         'service' => 'string',
         'email' => 'string',
+        'response_status' => 'integer',
         'is_valid' => 'boolean',
         'response' => 'object',
         'response_at' => 'datetime',
