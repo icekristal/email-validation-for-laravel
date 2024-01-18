@@ -12,12 +12,22 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('service')->comment('The service used to validate the email address, key service');
             $table->string('email');
-            $table->tinyInteger('status')->default(0);
-            $table->float('quality_score')->nullable();
+            $table->boolean('is_valid')->default(false);
             $table->integer('count_request')->default(0);
-            $table->json('response');
+            $table->json('response')->nullable();
             $table->dateTime('response_at')->nullable();
             $table->timestamps();
         });
+    }
+
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('email_validation_services');
     }
 };

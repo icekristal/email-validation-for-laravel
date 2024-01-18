@@ -1,4 +1,5 @@
 <?php
+namespace Icekristal\EmailValidationForLaravel;
 
 use Illuminate\Support\ServiceProvider;
 
