@@ -8,9 +8,9 @@ class Verification
 {
     protected string $apiKey;
     protected string $url;
-    protected string $email;
+    public string $email;
     protected int $timeout;
-    protected mixed $response;
+    public mixed $response;
 
     public function __construct()
     {

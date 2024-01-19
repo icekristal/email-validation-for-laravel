@@ -23,7 +23,10 @@
         "laravel": {
             "providers": [
                 "Icekristal\\EmailValidationService\\EmailValidationServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "EmailValidation": "Icekristal\\EmailValidationService\\Facades\\EmailValidation"
+            }
         }
     }
 }

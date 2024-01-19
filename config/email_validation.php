@@ -5,6 +5,7 @@ return [
     'is_save_result_db' => env('IS_SAVE_RESULT_EMAIL_VALIDATION_DB', true),
     'timeout' => env('TIMEOUT_EMAIL_VALIDATION', 30),
     'is_valid_email_shutdown_service' => env('IS_VALID_EMAIL_SHUTDOWN_SERVICE', true),
+    'is_use_save_db' => env('IS_USE_SAVE_DB', true),
 
     'services' => [
         'abstractapi' => [
