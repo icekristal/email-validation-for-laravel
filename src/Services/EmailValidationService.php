@@ -5,6 +5,7 @@ namespace Icekristal\EmailValidationForLaravel\Services;
 use Icekristal\EmailValidationForLaravel\Models\EmailValidationService as EmailValidationModel;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use function Laravel\Prompts\error;
 
 class EmailValidationService
 {
@@ -35,6 +36,9 @@ class EmailValidationService
                 $isShutDownService = false;
                 if($validClass->response->status() === 401) {
                     $isShutDownService = true;
+                    info('401 valid email service', [
+                        'response' => $validClass->response->json() ?? null,
+                    ]);
                     $isValid = config('email_validation.is_valid_email_shutdown_service', true);
                 }else{
                     $this->saveDb([
