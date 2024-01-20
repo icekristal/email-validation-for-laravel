@@ -21,6 +21,7 @@ class EmailValidationService
 
     public function isValidate(): bool
     {
+        if (!config('email_validation.is_enable', false)) return true;
         $isCheckDb = $this->isCheckDb();
         $resultValid = [];
         $isValid = false;
@@ -34,13 +35,13 @@ class EmailValidationService
             try {
                 $isValid = $validClass->isValid();
                 $isShutDownService = false;
-                if($validClass->response->status() === 401) {
+                if ($validClass->response->status() === 401) {
                     $isShutDownService = true;
                     info('401 valid email service', [
                         'response' => $validClass->response->json() ?? null,
                     ]);
                     $isValid = config('email_validation.is_valid_email_shutdown_service', true);
-                }else{
+                } else {
                     $this->saveDb([
                         'is_valid' => $isValid,
                         'service' => $service,

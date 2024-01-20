@@ -1,5 +1,6 @@
 <?php
 return [
+    'is_enable' => env('EMAIL_VALIDATION_IS_ENABLE', false),
     'enable_services' => explode(',', env('ACTIVE_EMAIL_VALIDATION_SERVICES', 'smtpbz,abstractapi,emaillistverify')),
     'is_check_multiple' => env('IS_CHECK_MULTIPLE_EMAIL_VALIDATION', false),
     'is_save_result_db' => env('IS_SAVE_RESULT_EMAIL_VALIDATION_DB', true),
