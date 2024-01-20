@@ -101,6 +101,7 @@ class EmailValidationService
 
     public function isCheckDb(): bool|null
     {
+        if (!config('email_validation.is_use_save_db')) return null;
         $modelCheck = EmailValidationModel::query()
             ->where('email', $this->email)
             ->first();
