@@ -35,8 +35,9 @@ class EmailValidationService
                 $this->saveDb([
                     'is_valid' => $isValid,
                     'service' => $service,
-                    'response_status' => $validClass->response->status() ?? null,
                     'response' => $validClass->response ?? null,
+                    'response_status' => $validClass->response->status() ?? null,
+                    'response_at' => now()
                 ]);
             } catch (\Exception $exception) {
                 $isValid = config('email_validation.is_valid_email_shutdown_service', true);
