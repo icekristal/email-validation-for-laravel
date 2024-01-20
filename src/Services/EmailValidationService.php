@@ -35,7 +35,7 @@ class EmailValidationService
                 $this->saveDb([
                     'is_valid' => $isValid,
                     'service' => $service,
-                    'response' => $validClass->response ?? null,
+                    'response' => $validClass->response->json() ?? null,
                     'response_status' => $validClass->response->status() ?? null,
                     'response_at' => now()
                 ]);
