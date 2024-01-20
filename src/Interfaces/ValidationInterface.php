@@ -1,6 +1,6 @@
 <?php
 
-namespace Interfaces;
+namespace Icekristal\EmailValidationForLaravel\Interfaces;
 
 interface ValidationInterface
 {
