@@ -16,16 +16,16 @@
     },
     "autoload": {
         "psr-4": {
-            "Icekristal\\EmailValidationService\\": "src/"
+            "Icekristal\\EmailValidationForLaravel\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Icekristal\\EmailValidationService\\EmailValidationServiceProvider"
+                "Icekristal\\EmailValidationForLaravel\\EmailValidationServiceProvider"
             ],
             "aliases": {
-                "EmailValidation": "Icekristal\\EmailValidationService\\Facades\\EmailValidation"
+                "EmailValidation": "Icekristal\\EmailValidationForLaravel\\Facades\\EmailValidation"
             }
         }
     }
