@@ -3,6 +3,7 @@
 namespace Icekristal\EmailValidationForLaravel\Services;
 
 use Icekristal\EmailValidationForLaravel\Models\EmailValidationService as EmailValidationModel;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
 class EmailValidationService
@@ -32,13 +33,19 @@ class EmailValidationService
             try {
                 $isValid = $validClass->isValid();
                 $isShutDownService = false;
-                $this->saveDb([
-                    'is_valid' => $isValid,
-                    'service' => $service,
-                    'response' => $validClass->response->json() ?? null,
-                    'response_status' => $validClass->response->status() ?? null,
-                    'response_at' => now()
-                ]);
+                if($validClass->response->status() === 401) {
+                    $isShutDownService = true;
+                    $isValid = config('email_validation.is_valid_email_shutdown_service', true);
+                }else{
+                    $this->saveDb([
+                        'is_valid' => $isValid,
+                        'service' => $service,
+                        'response' => $validClass->response->json() ?? null,
+                        'response_status' => $validClass->response->status() ?? null,
+                        'response_at' => now()
+                    ]);
+                }
+
             } catch (\Exception $exception) {
                 $isValid = config('email_validation.is_valid_email_shutdown_service', true);
                 $isShutDownService = true;
@@ -104,6 +111,7 @@ class EmailValidationService
     {
         if (!config('email_validation.is_use_save_db')) return null;
         $modelCheck = EmailValidationModel::query()
+            ->where('response_status', '<>', 401)
             ->where('email', $this->email)
             ->first();
 
