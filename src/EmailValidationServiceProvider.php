@@ -1,6 +1,7 @@
 <?php
 namespace Icekristal\EmailValidationForLaravel;
 
+use Icekristal\EmailValidationForLaravel\Services\EmailValidationService;
 use Illuminate\Support\ServiceProvider;
 
 class EmailValidationServiceProvider extends ServiceProvider
@@ -8,6 +9,7 @@ class EmailValidationServiceProvider extends ServiceProvider
 
     public function register(): void
     {
+        $this->app->bind('ice.email_validation', EmailValidationService::class);
         $this->registerConfig();
     }
     public function boot()
