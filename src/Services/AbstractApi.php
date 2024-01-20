@@ -3,10 +3,11 @@
 namespace Icekristal\EmailValidationForLaravel\Services;
 
 use GuzzleHttp\Promise\PromiseInterface;
+use Icekristal\EmailValidationForLaravel\Interfaces\ValidationInterface;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
-class AbstractApi extends Verification
+class AbstractApi extends Verification implements ValidationInterface
 {
 
     public function __construct()

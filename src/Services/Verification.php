@@ -2,7 +2,6 @@
 
 namespace Icekristal\EmailValidationForLaravel\Services;
 
-use Interfaces\ValidationInterface;
 
 class Verification
 {

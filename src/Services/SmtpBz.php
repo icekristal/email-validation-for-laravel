@@ -3,9 +3,9 @@
 namespace Icekristal\EmailValidationForLaravel\Services;
 
 use GuzzleHttp\Promise\PromiseInterface;
+use Icekristal\EmailValidationForLaravel\Interfaces\ValidationInterface;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
-use Interfaces\ValidationInterface;
 
 class SmtpBz extends Verification implements ValidationInterface
 {
