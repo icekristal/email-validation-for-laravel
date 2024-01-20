@@ -18,6 +18,7 @@ php artisan vendor:publish --provider="Icekristal\EmailValidationForLaravel\Emai
 
 setting .env
 ```
+EMAIL_VALIDATION_IS_ENABLE=true
 ACTIVE_EMAIL_VALIDATION_SERVICES=smtpbz,abstractapi,emaillistverify
 IS_CHECK_MULTIPLE_EMAIL_VALIDATION=false
 IS_SAVE_RESULT_EMAIL_VALIDATION_DB=true
